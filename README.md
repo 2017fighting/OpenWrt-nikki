@@ -4,6 +4,10 @@ English | [中文](README.zh.md)
 
 # Nikki
 
+> **Personal fork** — `mihomo-alpha` here builds from my own mihomo fork
+> (preferred-ip + heybox), pinned by commit, x86-v3 on x86_64. Published via my
+> self-built feed. See [docs/adr/0001](docs/adr/0001-mihomo-from-fork-via-openwrt-feeds.md).
+
 Transparent Proxy with Mihomo on OpenWrt.
 
 ## Prerequisites
@@ -22,39 +26,21 @@ Transparent Proxy with Mihomo on OpenWrt.
 
 ## Install & Update
 
-### A. Install From Feed (Recommended)
-
-1. Add Feed
-
 ```shell
-# only needs to be run once
-wget -O - https://github.com/nikkinikki-org/OpenWrt-nikki/raw/refs/heads/main/feed.sh | ash
-```
+# run once — registers my signed feed (OpenWrt 25.12, x86_64 / aarch64_generic)
+wget -O - https://2017fighting.github.io/openwrt-feeds/feed.sh | ash
 
-2. Install
-
-```shell
-# you can install from shell or `Software` menu in LuCI
-# for opkg
-opkg install nikki
-opkg install luci-app-nikki
-opkg install luci-i18n-nikki-zh-cn
-# for apk
-apk add nikki
-apk add luci-app-nikki
+# install / update (or use the `Software` menu in LuCI)
+apk add mihomo-alpha nikki luci-app-nikki
 apk add luci-i18n-nikki-zh-cn
-```
-
-### B. Install From Release
-
-```shell
-wget -O - https://github.com/nikkinikki-org/OpenWrt-nikki/raw/refs/heads/main/install.sh | ash
 ```
 
 ## Uninstall & Reset
 
 ```shell
-wget -O - https://github.com/nikkinikki-org/OpenWrt-nikki/raw/refs/heads/main/uninstall.sh | ash
+apk del mihomo-alpha luci-app-nikki nikki
+/etc/init.d/nikki disable
+rm -rf /etc/nikki /etc/config/nikki
 ```
 
 ## How To Use

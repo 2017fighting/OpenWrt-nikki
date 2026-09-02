@@ -4,6 +4,10 @@
 
 # Nikki
 
+> **个人 fork** —— 本仓库的 `mihomo-alpha` 取自我的 mihomo fork（preferred-ip +
+> 小黑盒加速），钉 commit 发布，x86_64 为 x86-v3 基线，经自建签名 feed 分发。
+> 见 [docs/adr/0001](docs/adr/0001-mihomo-from-fork-via-openwrt-feeds.md)。
+
 在 OpenWrt 上使用 Mihomo 进行透明代理。
 
 ## 环境要求
@@ -22,39 +26,21 @@
 
 ## 安装和更新
 
-### A. 从软件源安装（推荐）
-
-1. 添加源
-
 ```shell
-# 只需运行一次
-wget -O - https://github.com/nikkinikki-org/OpenWrt-nikki/raw/refs/heads/main/feed.sh | ash
-```
+# 只需运行一次 —— 注册自建签名源（OpenWrt 25.12，x86_64 / aarch64_generic）
+wget -O - https://2017fighting.github.io/openwrt-feeds/feed.sh | ash
 
-2. 安装
-
-```shell
-# 你可以从 shell 执行命令安装或者从 LuCI 的`软件包`菜单安装
-# for opkg
-opkg install nikki
-opkg install luci-app-nikki
-opkg install luci-i18n-nikki-zh-cn
-# for apk
-apk add nikki
-apk add luci-app-nikki
+# 安装 / 更新（也可从 LuCI 的`软件包`菜单安装）
+apk add mihomo-alpha nikki luci-app-nikki
 apk add luci-i18n-nikki-zh-cn
-```
-
-### B. 从发行版安装
-
-```shell
-wget -O - https://github.com/nikkinikki-org/OpenWrt-nikki/raw/refs/heads/main/install.sh | ash
 ```
 
 ## 卸载并重置
 
 ```shell
-wget -O - https://github.com/nikkinikki-org/OpenWrt-nikki/raw/refs/heads/main/uninstall.sh | ash
+apk del mihomo-alpha luci-app-nikki nikki
+/etc/init.d/nikki disable
+rm -rf /etc/nikki /etc/config/nikki
 ```
 
 ## 如何使用

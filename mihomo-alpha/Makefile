@@ -1,14 +1,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mihomo-alpha
-PKG_VERSION:=2026.08.16
+PKG_VERSION:=2026.09.02
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/MetaCubeX/mihomo.git
-PKG_SOURCE_VERSION:=ac017cdd246ce8bd547653d927e7bf77d7ee73d5
-PKG_MIRROR_HASH:=e92f6783831a2b49dd376ee4af7df35cdac0151c7333515616cc14c841eb68d3
+PKG_SOURCE_URL:=https://github.com/2017fighting/mihomo.git
+PKG_SOURCE_VERSION:=09d045e380991a9de12d630f0f8133e7be9f047e
+PKG_MIRROR_HASH:=23a12c12122950e81f37a1c3ad8b5622eb352d954e28e2360bfaaa8d7e9db5c8
 
 PKG_LICENSE:=GPL3.0+
 PKG_MAINTAINER:=Joseph Mory <morytyann@gmail.com>
@@ -17,7 +17,7 @@ PKG_BUILD_DEPENDS:=golang/host
 PKG_BUILD_PARALLEL:=1
 PKG_BUILD_FLAGS:=no-mips16
 
-PKG_BUILD_VERSION:=alpha-ac017cd
+PKG_BUILD_VERSION:=alpha-fork-09d045e
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 PKG_BUILD_TIME:=$(shell date -u -Iseconds)
 
@@ -29,6 +29,11 @@ GO_PKG_INSTALL_BIN_PATH:=/usr/libexec
 
 include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/golang/golang-package.mk
+
+# x86_64 要求 x86-v3 基线，与 fork CI 一致；见 docs/adr/0001
+ifeq ($(GO_ARCH),amd64)
+  GO_AMD64:=v3
+endif
 
 define Package/mihomo-alpha
   SECTION:=net
