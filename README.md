@@ -32,7 +32,7 @@ wget -O - https://2017fighting.github.io/openwrt-feeds/feed.sh | ash
 
 # install / update (or use the `Software` menu in LuCI)
 apk add mihomo-alpha nikki luci-app-nikki
-apk add luci-i18n-nikki-zh-hans
+apk add luci-i18n-nikki-zh-cn
 ```
 
 ## Uninstall & Reset

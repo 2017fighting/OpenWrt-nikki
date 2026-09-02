@@ -32,7 +32,7 @@ wget -O - https://2017fighting.github.io/openwrt-feeds/feed.sh | ash
 
 # 安装 / 更新（也可从 LuCI 的`软件包`菜单安装）
 apk add mihomo-alpha nikki luci-app-nikki
-apk add luci-i18n-nikki-zh-hans
+apk add luci-i18n-nikki-zh-cn
 ```
 
 ## 卸载并重置
