@@ -30,9 +30,8 @@ GO_PKG_INSTALL_BIN_PATH:=/usr/libexec
 include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/golang/golang-package.mk
 
-# x86_64 要求 x86-v3 基线，与 fork CI 一致；见 docs/adr/0001
 ifeq ($(GO_ARCH),amd64)
-  GO_AMD64:=v3
+  GO_AMD64:=v1
 endif
 
 define Package/mihomo-alpha
