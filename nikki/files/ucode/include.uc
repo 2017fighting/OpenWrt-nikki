@@ -8,6 +8,25 @@ export function uci_int(obj) {
 	return obj == null ? null : int(obj);
 };
 
+export function uci_double(obj) {
+	if (obj == null || length(obj) == 0) {
+		return null;
+	}
+	try {
+		const n = obj * 1;
+		return n != n ? null : n;
+	} catch (e) {
+		return int(obj);
+	}
+};
+
+export function uci_duration(value, unit) {
+	if (value == null || length(value) == 0) {
+		return null;
+	}
+	return `${value}${unit ?? 's'}`;
+};
+
 export function uci_array(obj) {
 	if (obj == null) {
 		return [];
@@ -32,7 +51,7 @@ export function trim_all(obj) {
 		if (length(obj) == 0) {
 			return null;
 		}
-		return obj;
+		return map(obj, (item) => type(item) == 'object' ? trim_all(item) : item);
 	}
 	if (type(obj) == 'object') {
 		const obj_keys = keys(obj);

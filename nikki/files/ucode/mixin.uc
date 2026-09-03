@@ -4,7 +4,7 @@
 
 import { cursor } from 'uci';
 import { connect } from 'ubus';
-import { uci_bool, uci_int, uci_array, trim_all } from '/etc/nikki/ucode/include.uc';
+import { uci_bool, uci_int, uci_double, uci_duration, uci_array, trim_all } from '/etc/nikki/ucode/include.uc';
 
 const uci = cursor();
 const ubus = connect();
@@ -125,6 +125,37 @@ if (uci_bool(uci.get('nikki', 'mixin', 'dns_nameserver_policy'))) {
 	});
 }
 
+if (uci_bool(uci.get('nikki', 'mixin', 'dns_preferred_ip'))) {
+	config['dns']['preferred-ip'] = [];
+	uci.foreach('nikki', 'preferred_ip', (section) => {
+		if (!uci_bool(section.enabled)) {
+			return;
+		}
+		push(config['dns']['preferred-ip'], {
+			name: section.name,
+			cidr: uci_array(section.cidr),
+			ipv6: section.ipv6,
+			'answer-count': uci_int(section.answer_count),
+			'ttl-cap': uci_int(section.ttl_cap),
+			persist: uci_bool(section.persist),
+			speedtest: {
+				url: section.speedtest_url,
+				interval: uci_duration(section.speedtest_interval, section.speedtest_interval_unit),
+				'disable-download': uci_bool(section.speedtest_disable_download),
+				threads: uci_int(section.speedtest_threads),
+				'tcp-port': uci_int(section.speedtest_tcp_port),
+				'ping-times': uci_int(section.speedtest_ping_times),
+				'download-count': uci_int(section.speedtest_download_count),
+				'download-time': uci_duration(section.speedtest_download_time, section.speedtest_download_time_unit),
+				'max-delay': uci_duration(section.speedtest_max_delay, section.speedtest_max_delay_unit),
+				'min-delay': uci_duration(section.speedtest_min_delay, section.speedtest_min_delay_unit),
+				'max-loss-rate': uci_double(section.speedtest_max_loss_rate),
+				'min-speed': uci_double(section.speedtest_min_speed),
+			},
+		});
+	});
+}
+
 config['sniffer'] = {};
 config['sniffer']['enable'] = uci_bool(uci.get('nikki', 'mixin', 'sniffer'));
 config['sniffer']['force-dns-mapping'] = uci_bool(uci.get('nikki', 'mixin', 'sniffer_sniff_dns_mapping'));
@@ -188,6 +219,42 @@ if (uci_bool(uci.get('nikki', 'mixin', 'rule'))) {
 		const rule = [ section.type, section.matcher, section.node, uci_bool(section.no_resolve) ? 'no-resolve' : null ];
 		push(config['nikki-rules'], join(',', filter(rule, (item) => item != null && item != '')));
 	})
+}
+
+if (uci_bool(uci.get('nikki', 'mixin', 'proxy_provider'))) {
+	config['proxy-providers'] = {};
+	uci.foreach('nikki', 'proxy_provider', (section) => {
+		if (!uci_bool(section.enabled)) {
+			return;
+		}
+		config['proxy-providers'][section.name] = {
+			type: section.type,
+			'heybox-id': uci_int(section.heybox_id),
+			pkey: section.pkey,
+			games: map(uci_array(section.games), (game) => int(game)),
+			isp: section.isp,
+			api: section.api,
+			interval: uci_int(section.interval),
+			filter: section.filter,
+			'exclude-filter': section.exclude_filter,
+		};
+	});
+}
+if (uci_bool(uci.get('nikki', 'mixin', 'proxy_group'))) {
+	config['nikki-proxy-groups'] = [];
+	uci.foreach('nikki', 'proxy_group', (section) => {
+		if (!uci_bool(section.enabled)) {
+			return;
+		}
+		push(config['nikki-proxy-groups'], {
+			name: section.name,
+			type: section.type,
+			proxies: uci_array(section.proxies),
+			use: uci_array(section.use),
+			url: section.url,
+			interval: uci_int(section.interval),
+		});
+	});
 }
 
 const geoip_format = uci.get('nikki', 'mixin', 'geoip_format');

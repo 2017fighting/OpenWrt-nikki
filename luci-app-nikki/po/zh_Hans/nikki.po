@@ -1125,3 +1125,403 @@ msgstr "用户名"
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/app.js:128
 msgid "procd Config"
 msgstr "procd 配置"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:427
+msgid "Overwrite Preferred IP"
+msgstr "覆写优选 IP"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:427
+msgid "Entries configured here replace the profile dns.preferred-ip list entirely; disable to pass the profile list through"
+msgstr "此处配置的条目将整体替换配置文件中的 dns.preferred-ip 列表；关闭则透传原列表"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:430
+msgid "Edit Preferred IP Entries"
+msgstr "编辑优选 IP 条目"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:444
+msgid "Entry Name"
+msgstr "条目名称"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:444
+msgid "Unique persistence key of the preferred pool"
+msgstr "优选池的唯一持久化键"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:448
+msgid "Preset"
+msgstr "预设"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:448
+msgid "Fill name and CIDR ranges with the official Cloudflare ranges; every field stays editable"
+msgstr "用 Cloudflare 官方地址段自动填充名称与 CIDR；填充后仍可修改"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:449
+msgid "Custom"
+msgstr "自定义"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:450
+msgid "Cloudflare"
+msgstr "Cloudflare"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:454
+msgid "CIDR Ranges"
+msgstr "CIDR 地址段"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:454
+msgid "IPv4 and IPv6 CIDRs to match and rewrite; listing IPv6 ranges activates AAAA handling"
+msgstr "参与匹配与改写的 IPv4/IPv6 CIDR；列出 IPv6 段后 AAAA 应答才会被处理"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:459
+msgid "IPv6 Answer Mode"
+msgstr "IPv6 应答模式"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:459
+msgid "Applies when a query matches an IPv6 CIDR of this entry"
+msgstr "仅当查询命中本条目的 IPv6 段时生效"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:461
+msgid "Default (Replace)"
+msgstr "默认（替换）"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:462
+msgid "Replace"
+msgstr "替换"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:463
+msgid "Block"
+msgstr "阻断"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:466
+msgid "Answer Count"
+msgstr "应答数量"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:466
+msgid "Preferred IPs served per DNS answer"
+msgstr "每条 DNS 应答携带的优选 IP 数"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:468
+msgid "Engine default (5)"
+msgstr "引擎默认（5）"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:471
+msgid "TTL Cap"
+msgstr "TTL 上限"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:471
+msgid "Seconds; caps the TTL of rewritten answers"
+msgstr "秒；改写后应答的 TTL 上限"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:473
+msgid "Engine default (60)"
+msgstr "引擎默认（60）"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:476
+msgid "Persist Pool"
+msgstr "持久化优选池"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:476
+msgid "Store the preferred pool in cache.db across restarts"
+msgstr "将优选池存入 cache.db，重启后继续生效"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:481
+msgid "Speedtest Url"
+msgstr "测速地址"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:481
+msgid "Download test URL; empty uses the built-in Cloudflare test"
+msgstr "下载测速地址；留空使用内置 Cloudflare 测速"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:484
+msgid "Speedtest Interval"
+msgstr "测速间隔"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:484
+msgid "Minimum 1 minute"
+msgstr "最小 1 分钟"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:486
+msgid "Engine default (24h)"
+msgstr "引擎默认（24 小时）"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:489
+msgid "Speedtest Interval Unit"
+msgstr "测速间隔单位"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:491
+msgid "Minute"
+msgstr "分钟"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:492
+msgid "Hour"
+msgstr "小时"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:496
+msgid "Latency Only"
+msgstr "仅测延迟"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:496
+msgid "Skip the download stage and rank by tcping latency only"
+msgstr "跳过下载阶段，仅按 tcping 延迟排序"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:500
+msgid "Threads"
+msgstr "并发线程"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:500
+msgid "Concurrent tcping workers"
+msgstr "并发 tcping 数量"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:502
+msgid "Engine default (200)"
+msgstr "引擎默认（200）"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:505
+msgid "TCP Port"
+msgstr "TCP 端口"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:505
+msgid "Port used by tcping candidates"
+msgstr "tcping 候选 IP 使用的端口"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:507
+msgid "Engine default (443)"
+msgstr "引擎默认（443）"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:510
+msgid "Ping Times"
+msgstr "探测次数"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:510
+msgid "tcping count per candidate"
+msgstr "每个候选 IP 的 tcping 次数"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:512
+msgid "Engine default (4)"
+msgstr "引擎默认（4）"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:515
+msgid "Download Count"
+msgstr "下载数量"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:515
+msgid "Candidates entering the download stage"
+msgstr "进入下载测速阶段的候选数量"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:517
+msgid "Engine default (10)"
+msgstr "引擎默认（10）"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:520
+msgid "Download Time"
+msgstr "下载时长"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:520
+msgid "Per-candidate download budget"
+msgstr "每个候选的下载时间预算"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:524
+msgid "Download Time Unit"
+msgstr "下载时长单位"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:526
+msgid "Second"
+msgstr "秒"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:531
+msgid "Max Delay"
+msgstr "最大延迟"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:531
+msgid "Drop candidates above this average delay; empty disables"
+msgstr "平均延迟高于此值的候选被剔除；留空关闭"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:535
+msgid "Max Delay Unit"
+msgstr "最大延迟单位"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:537
+msgid "Millisecond"
+msgstr "毫秒"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:542
+msgid "Min Delay"
+msgstr "最小延迟"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:542
+msgid "Drop candidates below this average delay; empty disables"
+msgstr "平均延迟低于此值的候选被剔除；留空关闭"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:546
+msgid "Min Delay Unit"
+msgstr "最小延迟单位"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:553
+msgid "Max Loss Rate"
+msgstr "最大丢包率"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:553
+msgid "0-1, both ends disable the filter"
+msgstr "0-1 之间；取 0 或 1 时关闭过滤"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:557
+msgid "Min Speed"
+msgstr "最小速度"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:557
+msgid "MB/s; empty keeps all candidates"
+msgstr "MB/s；留空保留全部候选"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:753
+msgid "Append Proxy Provider"
+msgstr "追加代理提供者"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:753
+msgid "Providers configured here are merged into the profile proxy-providers map"
+msgstr "此处配置的提供者会合并进配置文件的 proxy-providers"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:756
+msgid "Edit Proxy Providers"
+msgstr "编辑代理提供者"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:777
+msgid "Heybox"
+msgstr "小黑盒"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:779
+msgid "Heybox ID"
+msgstr "小黑盒 ID"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:785
+msgid "Pkey"
+msgstr "Pkey"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:785
+msgid "Account credential; rotates on every Heybox login, update it manually. Stored in UCI as plain text"
+msgstr "账号凭据；每次登录小黑盒都会轮换，需手动更新。以明文存储于 UCI"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:791
+msgid "Games"
+msgstr "游戏"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:791
+msgid "acc_id list from the account game library; 356 = Switch"
+msgstr "账号游戏库中的 acc_id 列表；356 = Switch"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:797
+msgid "ISP"
+msgstr "运营商"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:797
+msgid "Entry network of the acceleration nodes"
+msgstr "加速节点使用的入口线路"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:799
+msgid "Default (All)"
+msgstr "默认（全部）"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:800
+msgid "China Telecom"
+msgstr "电信"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:801
+msgid "China Unicom"
+msgstr "联通"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:802
+msgid "China Mobile"
+msgstr "移动"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:807
+msgid "API Base"
+msgstr "API 地址"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:807
+msgid "Optional override of the Heybox API endpoint"
+msgstr "可选；覆盖小黑盒 API 端点"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:811
+msgid "Seconds between node re-enumerations"
+msgstr "秒；节点重新枚举的间隔"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:813
+msgid "Engine default (600)"
+msgstr "引擎默认（600）"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:816
+msgid "Filter"
+msgstr "过滤"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:816
+msgid "Regex on proxy names, e.g. Switch.*Japan"
+msgstr "按代理名过滤的正则，如 Switch.*日本"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:819
+msgid "Exclude Filter"
+msgstr "排除过滤"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:819
+msgid "Regex dropping matching proxy names"
+msgstr "命中此正则的代理名将被排除"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:822
+msgid "Append Proxy Group"
+msgstr "追加代理分组"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:822
+msgid "Groups configured here are prepended to the profile proxy-groups"
+msgstr "此处配置的分组将前置插入配置文件的 proxy-groups"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:825
+msgid "Edit Proxy Groups"
+msgstr "编辑代理分组"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:846
+msgid "Select"
+msgstr "手动选择"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:847
+msgid "URL Test"
+msgstr "自动测速"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:848
+msgid "Fallback"
+msgstr "故障转移"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:849
+msgid "Load Balance"
+msgstr "负载均衡"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:850
+msgid "Relay"
+msgstr "链式代理"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:852
+msgid "Member Proxies"
+msgstr "成员节点"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:852
+msgid "DIRECT, proxy names from the profile, or other group names"
+msgstr "DIRECT、配置文件中的节点名或其他分组名"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:856
+msgid "Use Providers"
+msgstr "引用提供者"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:856
+msgid "Provider names; heybox proxies are named Game-Node, region included"
+msgstr "提供者名称；小黑盒代理名为「游戏-节点」，节点名内含大区"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:864
+msgid "Test Url"
+msgstr "健康检查地址"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:864
+msgid "Health check URL for url-test / fallback / load-balance groups"
+msgstr "url-test / fallback / load-balance 分组的健康检查地址"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:870
+msgid "Test Interval"
+msgstr "检测间隔"
+
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/mixin.js:870
+msgid "Seconds between health checks"
+msgstr "秒；健康检查间隔"
