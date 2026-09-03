@@ -132,6 +132,7 @@ return view.extend({
         o.value('https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip', 'MetaCubeXD');
         o.value('https://github.com/MetaCubeX/Yacd-meta/archive/refs/heads/gh-pages.zip', 'YACD');
         o.value('https://github.com/MetaCubeX/Razord-meta/archive/refs/heads/gh-pages.zip', 'Razord');
+        o.value('https://github.com/2017fighting/metacubexd/releases/latest/download/metacubexd.zip', '2017fighting');
 
         o = s.taboption('external_control', form.Value, 'api_listen', _('API Listen'));
         o.datatype = 'ipaddrport(1)';
