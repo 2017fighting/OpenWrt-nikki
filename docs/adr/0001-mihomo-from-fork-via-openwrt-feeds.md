@@ -27,3 +27,13 @@ preferred-ip 与 heybox 两个特性），钉住 commit（现为 `09d045e3`）�
   CPU；aarch64 不受影响。
 - 升级循环：rebase mihomo fork → push → bump 本仓库 pin → push → bump
   openwrt-feeds 桥上的 commit → CI 出包 → 设备 `apk upgrade`。
+  PKG_MIRROR_HASH 必须等于 SDK 下载链实际使用的 dl_github_archive 打包（codeload
+  重打包，非 git archive 兑底）。本地预计算（单轮化，免 CI 试错）：
+
+      python3 scripts/dl_github_archive.py \
+        --dl-dir /tmp/x --url https://github.com/2017fighting/mihomo.git \
+        --version <新commit全hash> --subdir mihomo-alpha-<新日期> \
+        --source mihomo-alpha-<新日期>.tar.gz --hash <64个0>
+      # 从 "Wrong hash ... got X" 取 X 填入 PKG_MIRROR_HASH
+
+  （scripts/dl_github_archive.py 取自 openwrt 源树对应分支）
