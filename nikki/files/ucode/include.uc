@@ -99,7 +99,7 @@ export function load_profile() {
 	let result = {};
 	const process = popen('yq -M -p yaml -o json /etc/nikki/run/config.yaml');
 	if (process) {
-		result = json(process);
+		result = json(process.read('all'));
 		process.close();
 	}
 	return result;
