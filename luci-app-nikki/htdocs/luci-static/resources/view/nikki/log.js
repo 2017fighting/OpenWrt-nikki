@@ -26,6 +26,9 @@ return view.extend({
 
         s.tab('log_config', _('Log Config'));
 
+        o = s.taboption('log_config', form.Flag, 'mirror_to_syslog', _('Mirror To Syslog'));
+        o.rmempty = false;
+
         o = s.taboption('log_config', form.Flag, 'clear_at_stop', _('Clear At Stop'));
         o.rmempty = false;
 

@@ -15,6 +15,9 @@ PROXY_PROVIDERS_DIR="$PROVIDERS_DIR/proxy"
 LOG_DIR="/var/log/nikki"
 APP_LOG_PATH="$LOG_DIR/app.log"
 CORE_LOG_PATH="$LOG_DIR/core.log"
+# log mirror to syslog
+APP_LOG_TAG="nikki-app"
+CORE_LOG_TAG="nikki-core"
 
 # temp
 TEMP_DIR="/var/run/nikki"
