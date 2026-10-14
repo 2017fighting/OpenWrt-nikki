@@ -576,6 +576,10 @@ msgstr ""
 msgid "Memory Conservative Loader"
 msgstr ""
 
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/log.js:29
+msgid "Mirror To Syslog"
+msgstr ""
+
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:194
 msgid "Misc"
 msgstr ""

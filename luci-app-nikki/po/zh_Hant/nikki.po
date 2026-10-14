@@ -583,6 +583,10 @@ msgstr "匹配器"
 msgid "Memory Conservative Loader"
 msgstr "為記憶體受限裝置最佳化的載入器"
 
+#: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/log.js:29
+msgid "Mirror To Syslog"
+msgstr "鏡像至系統日誌"
+
 #: applications/luci-app-nikki/htdocs/luci-static/resources/view/nikki/proxy.js:194
 msgid "Misc"
 msgstr "雜項"
